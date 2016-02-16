@@ -56,11 +56,11 @@
 	<script>
 		var sections = document.getElementsByTagName('section');
 
-		function makeArray(collection){
+		function makeArray(collection) {
 			return Array.prototype.slice.call(collection);
 		}
 
-		function showTag(el){
+		function showTag(el) {
 			var div = document.createElement('div'),
 				text = document.createTextNode(el.tagName);
 			div.className = 'tag';
@@ -69,7 +69,7 @@
 			return div
 		}
 
-		function showSection(){
+		function showSection() {
 
 			makeArray(sections).forEach(function(section, i){
 				section.className = 'section-highlight';
@@ -77,7 +77,7 @@
 
 		}
 
-		function showChildren(){
+		function showChildren() {
 
 			makeArray(sections).forEach(function(section,i){
 				var children = section.children;
@@ -89,7 +89,7 @@
 
 		}
 
-		function clearText(){
+		function clearText() {
 			var node,
 				walk = document.createTreeWalker(
 					document.body,
