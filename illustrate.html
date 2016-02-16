@@ -54,8 +54,11 @@
 		<li>(Cmd + R to get the amendments back)</li>
 	</ul>
 	<script>
-
 		var sections = document.getElementsByTagName('section');
+
+		function makeArray(collection){
+			return Array.prototype.slice.call(collection);
+		}
 
 		function showTag(el){
 			var div = document.createElement('div'),
@@ -68,25 +71,21 @@
 
 		function showSection(){
 
-			for (i = 0; i<sections.length; i++){
+			makeArray(sections).forEach(function(section, i){
+				section.className = 'section-highlight';
+			});
 
-				sections[i].className = 'section-highlight';
-
-			}
 		}
 
 		function showChildren(){
-			for (i = 0; i<sections.length; i++){
 
-				var children = sections[i].children;
-
-				for (j = 0;j < children.length; j++){
-			
-					children[j].appendChild(showTag(children[j]));
-					children[j].className = 'children-highlight';
-				}
-
-			}
+			makeArray(sections).forEach(function(section,i){
+				var children = section.children;
+				makeArray(children).forEach(function(child,i){
+					child.appendChild(showTag(child));
+					child.className = 'children-highlight'
+				})
+			});
 
 		}
 
