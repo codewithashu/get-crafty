@@ -31,8 +31,10 @@ function showChildren() {
     var children = section.children;
 
     makeArray(children).forEach(function(child){
+
       child.appendChild(showTag(child));
-      child.className = 'children-highlight'
+      child.className = 'children-highlight';
+
     })
 
   });
