@@ -20,20 +20,35 @@ The DOM defines a way for promrams to change
 
 ~~~
 
-The DOM provides a representation of the document as **a structured group of nodes and objects that have properties and methods**. Essentially, it connects web pages to scripts or programming languages.
+The DOM is
+
+- represents the document as <span class='highlight'>a structured group of nodes and objects that have properties and methods</span>
+- connects web pages to scripts or programming languages.
+
+~~~
+
+# a structured group of nodes and objects that have properties and methods
+
+~~~
+
+Stop yelling.
+<p class='fragment'><a href='https://jueyang.github.io/get-crafty/illustrate'>Start showing</a>.</p>
+
+~~~
 
 ```
 var mom = document.createElement('h1'),
-    julia = document.createTextNode('No idea where mom is!');
+    julia = document.createTextNode('No idea where mom is :(');
 
 // mom has to find great great great...grandma
 var ancestor = document.body;
 
 // found mom
+// this is a method (starting with a verb)
 ancestor.appendChild(mom);
 mom.appendChild(julia)
 
-// just to make sure
+// this is a property (starting with a noun)
 console.log(julia.parentElement);
 ```
 
@@ -41,68 +56,127 @@ Read more about the DOM [here](https://developer.mozilla.org/en-US/docs/Web/API/
 
 ~~~
 
-### Can you show me the structure?
-
-### [Yes](https://jueyang.github.io/get-crafty/illustrate).
-
-~~~
-
-### What?
-
-### [Source code](https://github.com/jueyang/get-crafty/blob/gh-pages/illustrate)
+[Mini exercise](http://codepen.io/anon/pen/Qyorqv?editors=1011)
 
 ---
 
-## Ugh...it's broken.
+## the I-think-it's-broken syndrome
 
 ~~~
 
-## Find out why.
+![](https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia0.giphy.com%2Fmedia%2F10dHotK4K8R0AM%2F200.gif&f=1)
+
+<p class='fragment'>It's not working.</p>
+<p class='fragment'>Nothing happens.</p>
+<p class='fragment'>I did everything.</p>
 
 ~~~
 
-No one can do this for you expect for you and your BFF --
+## No, you didn't.
+
+~~~
+
+You didn't find out why.
+
+~~~
+
+Supports are nice but rely on yourself.
+
+~~~
+
+because no one can do this for you,
+<p class='fragment'>at a larger scale,</p>
+<p class='fragment'>or in the longer run.</p>
+
+~~~
+
+.. expect for you and your BFF:
 
 ![](http://cl.ly/290h1f2z030E/Screen%20Shot%202016-02-18%20at%205.21.18%20PM.png)
 
-Console/Developer Tool (Chrome). Use ** `cmd` + `opt` + `j` **.
+Console/Developer Tool (Chrome).
+
+Say hi with ** `cmd` + `opt` + `j` **.
 
 ~~~
 
-### Now let's sabotage some code.
-
-~~~
+### Now let's make some mistakes.
 
 ```
-var name = 'tartar sause'.
-
-alert(name);
-```
-
-~~~
-
-HTML:
-
-```
-<h1>Did you know?</h1>
-<p></p>
-```
-
-JS:
-
-```
-document.getElementById('name').innerText('The real name of grumpy cat is tartar sauce.')
+$ mkdir a-site
+$ touch index.html
+$ touch site.js
+$ subl .
 ```
 
 ~~~
 
-### [Structure exercise](http://codepen.io/anon/pen/Qyorqv?editors=1011)
+Copy the following into `index.html`, save.
+
+```
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta title='important fact'>
+</head>
+<style>
+    body {
+        padding:100px 0;
+        font:48px sans-serif;
+        line-height:22px;
+        text-align:center;
+    }
+    ul {
+        list-style:none;
+        padding:0;
+    }
+    span {
+        color:pink;
+    }
+</style>
+<body>
+    <h1>Did you know?</h1>
+    <button>What? Tell me!</button>
+    <p><!--place holder for the big secret--></p>
+    <script src='stie.js'></script>
+</body>
+</html>
+```
+
+~~~
+
+Copy the following into `site.html`, save.
+
+```
+var button = document.getElementById('hitit').
+var answer = document.getElementById('answer');
+
+button.addEventListener('click',adAnswer);
+
+function addAnswer(){
+  answer.innerText = ' Tartar Sauce.'
+}
+```
+
+~~~
+
+Now open the site.
+
+```
+$ open index.html
+```
+
+~~~
+
+![](https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fthatgrapejuice.net%2Fwp-content%2Fuploads%2FHLIC%2Ffaf644aec0cc75b11fa775a06ee67379.gif&f=1)
+
+> What doesn't kill you make you stronger.
 
 ---
 
 ## JS 002
 
-We  will use the Developer Tool in Chrome for a bit, then let's switch to [codepen](http://codepen.io) for the exercises.
+We  will use the Developer Tool for a bit, then let's switch to [codepen](http://codepen.io) for the exercises.
 
 ---
 
@@ -119,7 +193,12 @@ We  will use the Developer Tool in Chrome for a bit, then let's switch to [codep
 
 ### Exercise
 
-Define three varibles of each type respectively. Then check with `typeof(varible)`.
+Define three varibles of each type respectively. Then check with the function `typeof()`.
+
+```
+> x = '1' + 2;
+> typeof(x);
+```
 
 See all data types [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures).
 
@@ -128,9 +207,8 @@ See all data types [here](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 ### console.log
 
 ```
-> console.log('please tell me the secret of life');
 > x = 5;
-> console.log(x);
+> console.log('I just defined a varible x with a value of' + x);
 ```
 
 ~~~
@@ -173,7 +251,7 @@ console.log(mags);
 
 ```
 mags.forEach(function(oneMag){
-	console.log('I read ' + oneMag);
+    console.log('I read ' + oneMag);
 });
 ```
 
@@ -185,11 +263,11 @@ mags.forEach(function(oneMag){
 var numbers = [22,46,72];
 
 var doubles = numbers.map(function(oneNumber){
-	return oneNumber * 2;
+    return oneNumber * 2;
 });
 
 var sentences = numbers.map(function(oneNumber, index){
-	return oneNumber + ' has an index of ' + index	+ ' in this array.'
+    return oneNumber + ' has an index of ' + index  + ' in this array.'
 });
 
 console.log(doubles);
@@ -225,10 +303,10 @@ console.log(partial);
 ### String
 
 ```
-var name = 'Barack Obama';
+var name = 'Bernie Sanders';
 
 console.log(name.length)
-console.log(name[7]);
+console.log(name[8]);
 ```
 
 ~~~
@@ -236,7 +314,7 @@ console.log(name[7]);
 #### substr
 
 ```
-var firstName = name.substr(0,6);
+var firstName = name.substr(0,5);
 
 console.log(firstName);
 ```
@@ -252,9 +330,9 @@ favMag.name = 'Nautilus';
 favMag.genre = 'science';
 favMag.interns = ['JoAnna Klein','Susie Neilson','Ankur Paliwal']
 favMag.notinterns= [
-	{"name":"John Steele", "role":"Publisher and Editorial Director"},
-	{"name":"Michael Segal", "role":"Editor in Chief"},
-	{"name":"Meehan Crist", "role":"Editor-at-Large"},
+    {"name":"John Steele", "role":"Publisher and Editorial Director"},
+    {"name":"Michael Segal", "role":"Editor in Chief"},
+    {"name":"Meehan Crist", "role":"Editor-at-Large"},
 ]
 
 console.log(favMag);
@@ -267,7 +345,7 @@ console.log(favMag.interns);
 
 ```
 function addTwoNumbers(num1,num2){
-	return num1 + numb2
+    return num1 + numb2
 }
 
 addNumbers(3,4);
@@ -277,11 +355,11 @@ addNumbers(3,4);
 
 #### callback
 
-Briefly speaking, it's passing one function into another.
+Extremely briefly speaking, it's passing one function into another.
 
 ```
 function addPumpkinsAfterCalculation(num1,num2,calculation){
-	return calculation + ' pumpkins'
+    return calculation + ' pumpkins'
 }
 
 addPumpkinsAfterCalculation(4, 5, addTwoNumbers);
@@ -289,54 +367,71 @@ addPumpkinsAfterCalculation(4, 5, addTwoNumbers);
 
 ---
 
-## Loop
+## Another Loop
 
-[for Loop](http://codepen.io/anon/pen/yewwzY)
+```
+var expense = [19,20,44,67,50,34,200],
+    days = ['mon','tues','thurs','fri','satur','sun'];
+
+// this is a for loop
+for (var i = 0; i<= days.length; i++){
+  var dayName = days[i].concat('day'),
+      spending = dayName + ' I spent $' + expense[i];
+  console.log(spending);
+}
+```
 
 ---
 
 ## Homework
 
-~~~
-
-1. Fork the [pen](http://codepen.io/anon/pen/obVdxJ) and finish the exercise.
-2. Refactor your `js` files from homework 1.
+<li class='fragment'>1. Fork the [pen](http://codepen.io/anon/pen/obVdxJ) and finish the exercise.</li>
+<li class='fragment'>2. Refactor your `js` files from homework 1.</li>
 
 ~~~
 
 To deliver:
 
-1. Add an `<a>` in your homework's `index.html`, which links to the your fork of exercise.
-2. Push your changes to the `refactor` branch of your repository (see notes on branching at the end).
+1. Add an `<a>` in your homework's `index.html`, which links to the your exercise fork.
+2. Create a new branch on GitHub in homework 1 and push your changes to the new branch. See [note](https://gist.github.com/jueyang/fe02eaaca0bd4d4e70a2).
 
 ~~~
 
-### Goal
+### General steps
 
-Get familiar with writing functions.
+<li class='fragment'>Write 4 calculating functions.</li>
+<li class='fragment'>Add to your html so that the users will be able to submit two numbers.</li>
+<li class='fragment'>Write a 5th function that takes two numbers from the input and run through the 4 calculations.</li>
+<li class='fragment'>Write a 6th function that takes 1) the two number from input and 2) the results from each calculation and populates the DOM with four clauses describing the calculation.</li>
 
-### How
+~~~
 
-- Write four calculating functions.
-- Complete a fifth function that populates the html with a sentence describing the calculation. You've already done it - "when I add x and y I get z". But Unlike the previous homework, you are no longer constrained by the two varibles you defined. With this function, you can create content with combinations of ANY two numbers.
-- Excecute the function once per type of calculation.
+You final result will resemble this somewhat.
 
-Read the instructions in [this semi-finished `js` file](https://gist.github.com/jueyang/62324823e479839d491f) and complete it. It walks you through re-writing your javascript.
+>input 1: ______
 
----
+>input 2: ______
 
-### Branch it off
+>Calculate!
 
-**So far you have been on one branch, `master`. You are going to work in a new branch because it lets you keep your original (working) version, while experimenting on a new one.
+~~~
 
-Create a new branch called `refactor`.
+> 21 + 3 = 24
 
-`git checkout -b refactor`
+> 21 - 3 = 18
 
-Check which branch you're on before you start working and before you push:
+> 21 * 3 = 63
 
-`git branch`
+> 21 / 3 = 7
 
-Push to a remote (new) branch
+> Sincerely,
 
-`git push origin refactor`
+> your hand-coded calculator
+
+~~~
+
+- If you want to, you can follow [this semi-finished `js` file](h) and complete it. It breaks the steps down further and walks you through re-writing your js.
+
+![](https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fprincetonfound.files.wordpress.com%2F2011%2F07%2Fimg_9448.jpg&f=1)
+
+
