@@ -1,7 +1,7 @@
 ## Lab goals
 
 - Clarify DOM and its relationship with Javascript.
-- Understand, and construct, data structure.
+- Understand and construct data structure.
 - Write more, if not better, functions.
 
 ---
@@ -12,7 +12,7 @@ The **Document Object Model (DOM)** provides a structured representation of the 
 
 ---
 
-The DOM defines a way for promrams to change
+The DOM defines a way for programs to change
 
 - document structure
 - style
@@ -20,10 +20,8 @@ The DOM defines a way for promrams to change
 
 ~~~
 
-The DOM is
-
-- represents the document as <span class='highlight'>a structured group of nodes and objects that have properties and methods</span>
-- connects web pages to scripts or programming languages.
+- In the DOM, `document` is <span class='highlight'>a structured group of nodes and objects that have properties and methods</span>
+- The DOM <span class='highlight'>connects</span> web pages to scripts.
 
 ~~~
 
@@ -72,15 +70,11 @@ Read more about the DOM [here](https://developer.mozilla.org/en-US/docs/Web/API/
 
 ~~~
 
-## No, you didn't.
+Not really.
 
 ~~~
 
-You didn't find out why.
-
-~~~
-
-Supports are nice but rely on yourself.
+Rely on yourself.
 
 ~~~
 
@@ -90,7 +84,7 @@ because no one can do this for you,
 
 ~~~
 
-...except for you and your BFF:
+...except for you and your BFF
 
 ![](http://cl.ly/290h1f2z030E/Screen%20Shot%202016-02-18%20at%205.21.18%20PM.png)
 
@@ -103,7 +97,7 @@ Say hi with ** `cmd` + `opt` + `j` **.
 ### Now let's make some mistakes.
 
 ```
-$ mkdir a-site
+$ mkdir a-site-with-mistakes
 $ touch index.html
 $ touch site.js
 $ subl .
@@ -176,7 +170,7 @@ $ open index.html
 
 ## JS 002
 
-We  will use the Developer Tool for a bit, then let's switch to [codepen](http://codepen.io) for the exercises.
+We will use the Chrome console for a bit. Then let's switch to [codepen](http://codepen.io) for the exercises.
 
 ---
 
@@ -215,17 +209,17 @@ See all data types [here](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 
 ## Tough love policy
 
-No questions will be answered if you don't include an error message or some weird thing returned from your `console.log`.
+No questions will be answered if you don't include an error message or something returned from your `console.log`.
 
 ---
 
-# Data Structure
+## Data Structure
+
+Switch to codepen now.
 
 ~~~
 
 ### Array
-
-Switch to codepen now.
 
 ```
 var mags = ['The New Yorker','Nautilus','N+1'];
@@ -339,6 +333,49 @@ console.log(favMag);
 console.log(favMag.interns);
 ```
 
+~~~
+
+### JSON
+
+JavaScript Object Notation
+
+```
+{
+  "firstName": "Bernard",
+  "lastName": "Sanders",
+  "known as": "Bernie",
+  "party": "Dem",
+  "age": 74,
+  "isStillRunning": true,
+}
+```
+
+~~~
+
+For example
+
+```
+// an array of republican candidates
+// abbreviated for demo only
+
+var republicans = [
+    {"firstName":"Donald","lastName":"Trump", "isStillRunning": true},
+    {"firstName":"Marco","lastName":"Rubio", "isStillRunning": true},
+    ...
+    {"firstName":"Chris","lastName":"Christie", "isStillRunning": false}
+];
+
+var republicansStillRunning = republicans.map(function(candidate,i){
+
+    if (candidate.isStillRunning === true) {
+        return candidate.firstName + ' ' + candidate.lastName;
+    }
+
+});
+
+console.log(republicansStillRunning);
+```
+
 ---
 
 ### Function
@@ -375,9 +412,12 @@ var expense = [19,20,44,67,50,34,200],
 
 // this is a for loop
 for (var i = 0; i<= days.length; i++){
+
   var dayName = days[i].concat('day'),
       spending = dayName + ' I spent $' + expense[i];
+
   console.log(spending);
+
 }
 ```
 
