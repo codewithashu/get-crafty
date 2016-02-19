@@ -90,7 +90,7 @@ because no one can do this for you,
 
 ~~~
 
-.. expect for you and your BFF:
+...except for you and your BFF:
 
 ![](http://cl.ly/290h1f2z030E/Screen%20Shot%202016-02-18%20at%205.21.18%20PM.png)
 
