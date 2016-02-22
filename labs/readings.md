@@ -31,18 +31,17 @@ Events | - | [An Introduction to DOM Events (Smashing)](https://www.smashingmaga
 
 ### The relationship between data and DOM nodes
 
-https://bost.ocks.org/mike/join/
-https://bost.ocks.org/mike/circles/
-https://bost.ocks.org/mike/selection/
-
+- https://bost.ocks.org/mike/join/
+- https://bost.ocks.org/mike/circles/
+- https://bost.ocks.org/mike/selection/
 - follow: https://bost.ocks.org/mike/bar/ (part 1-3)
 
 ### Update pattern
 
-https://bl.ocks.org/mbostock/3808218
+- https://bl.ocks.org/mbostock/3808218
 
 ### Transition
 
-https://bost.ocks.org/mike/constancy/
-https://bost.ocks.org/mike/transition/
-http://vis.berkeley.edu/papers/animated_transitions/
+- https://bost.ocks.org/mike/constancy/
+- https://bost.ocks.org/mike/transition/
+- http://vis.berkeley.edu/papers/animated_transitions/
